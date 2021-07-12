@@ -11,9 +11,11 @@ This `react-markdown-sample` web app contains markdown editor with preview. Type
 Note: The project uses `yarn` as the package manager. Please install `yarn` on your system before proceeding with next steps. 
 ## Screenshot of the app
 Editor: 
+
 ![Editor](src/assests/snapshot1.png) 
 
 Preview: 
+
 ![Preview](src/assests/snapshot2.png)
 
 ## Available Scripts
