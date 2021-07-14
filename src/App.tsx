@@ -9,8 +9,18 @@ import rehypeRaw from "rehype-raw";
 interface Props {}
 const gfm = require("remark-gfm");
 const MarkdownPreview: React.FunctionComponent<Props> = (props) => {
- 
   const [markdownContent, setMarkdownContent] = useState("");
+  const removeLineBreak = (mdContent: any) => {
+    if (mdContent.startsWith("<")) {
+      mdContent = mdContent.replace(
+        /(?:^|<\/pre>)[^]*?(?:<pre>|$)/g,
+        function (str: any) {
+          return str.replace(/[\n\t]+/g, "");
+        }
+      );
+      return mdContent;
+    } else return mdContent;
+  };
   return (
     <React.Fragment>
       <div className="bgColor">
@@ -40,7 +50,7 @@ const MarkdownPreview: React.FunctionComponent<Props> = (props) => {
                 <div className="spacing preview markdown-style markdown-preview ">
                   <MarkdownPreviewErr>
                     <ReactMarkdown
-                      children={markdownContent}
+                      children={removeLineBreak(markdownContent)}
                       linkTarget="_blank"
                       rehypePlugins={[rehypeRaw]}
                       plugins={[gfm]}
