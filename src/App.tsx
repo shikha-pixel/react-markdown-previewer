@@ -50,7 +50,7 @@ const MarkdownPreview: React.FunctionComponent<Props> = (props) => {
                 <div className="spacing preview markdown-style markdown-preview ">
                   <MarkdownPreviewErr>
                     <ReactMarkdown
-                      children={removeLineBreak(markdownContent)}
+                      children={removeLineBreak(markdownContent.trim()}
                       linkTarget="_blank"
                       rehypePlugins={[rehypeRaw]}
                       plugins={[gfm]}
